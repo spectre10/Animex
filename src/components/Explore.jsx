@@ -1,7 +1,7 @@
 import React from "react";
 import Footer from "./Footer";
 import Header from "./Header";
-import Img from "./Img";
+// import Img from "./Img";
 import TrendingGrid from "./TrendingGrid";
 import TopAiringGrid from "./TopAiringGrid";
 import HighestRatedGrid from "./HighestRatedGrid";
