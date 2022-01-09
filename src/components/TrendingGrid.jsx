@@ -21,9 +21,6 @@ function TrendingGrid() {
         // handle error
         console.log(error);
     })
-    // sleep(1000);
-    
-    // console.log(data);
     
     return (
         <div className="explore-grid">
