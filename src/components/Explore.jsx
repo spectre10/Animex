@@ -3,8 +3,9 @@ import Footer from "./Footer";
 import Header from "./Header";
 // import Img from "./Img";
 import TrendingGrid from "./TrendingGrid";
-import TopAiringGrid from "./TopAiringGrid";
+import TopAiringGrid from "./PopularGrid";
 import HighestRatedGrid from "./HighestRatedGrid";
+import TopUpcomingGrid from "./TopUpcomingGrid";
 function Explore() {
     return (
     <div className="explore-div">
@@ -12,6 +13,7 @@ function Explore() {
         <h1>Explore Anime</h1>
         {/* <Img/> */}
         <TrendingGrid/>
+        <TopUpcomingGrid/>
         <TopAiringGrid/>
         <HighestRatedGrid/>
         <Footer/>

@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState, Suspense } from "react";
+import GridCard from "./GridCard";
 
 function TopAiringGrid() {
     let [data1,setData1] = useState("");
@@ -29,23 +30,11 @@ function TopAiringGrid() {
         <div className="explore-grid">
         <h6 className="margin-left">Most Popular Anime</h6>
         <div className="flex-grid margin-left">
-            <div>
-                <Suspense fallback={<div className="hello"></div>}>
-                <img src={data1}></img>
-                </Suspense>
-            </div>
-            <div>
-            <img src={data2}></img>
-            </div>
-            <div>
-            <img src={data3}></img>
-            </div>
-            <div>
-            <img src={data4}></img>
-            </div>
-            <div>
-            <img src={data5}></img>
-            </div>
+            <GridCard src={data1}/>
+            <GridCard src={data2}/>
+            <GridCard src={data3}/>
+            <GridCard src={data4}/>
+            <GridCard src={data5}/>
         </div>
         </div>
     )

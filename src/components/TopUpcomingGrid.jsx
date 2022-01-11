@@ -2,13 +2,13 @@ import axios from "axios";
 import React, { useState, Suspense } from "react";
 import GridCard from "./GridCard";
 
-function HighestRatedGrid() {
+function TopUpcomingGrid() {
     let [data1,setData1] = useState("");
     let [data2,setData2] = useState("");
     let [data3,setData3] = useState("");
     let [data4,setData4] = useState("");
     let [data5,setData5] = useState("");
-    axios.get('https://kitsu.io/api/edge/anime?sort=ratingRank&page[limit]=5&page[offset]=0')
+    axios.get('https://kitsu.io/api/edge/anime?filter%5Bstatus%5D=upcoming&page%5Blimit%5D=5&sort=-user_count')
     .then(function (response) {
         // handle success
         setData1(response.data.data[0].attributes.posterImage.small);
@@ -28,7 +28,7 @@ function HighestRatedGrid() {
     
     return (
         <div className="explore-grid">
-        <h6 className="margin-left">Highest Rated Anime</h6>
+        <h6 className="margin-left">Top Upcoming Anime</h6>
         <div className="flex-grid margin-left">
             <GridCard src={data1}/>
             <GridCard src={data2}/>
@@ -40,4 +40,4 @@ function HighestRatedGrid() {
     )
 }
 
-export default HighestRatedGrid;
+export default TopUpcomingGrid;
