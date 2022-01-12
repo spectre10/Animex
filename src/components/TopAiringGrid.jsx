@@ -1,43 +1,52 @@
-import axios from "axios";
-import React, { useState, Suspense } from "react";
-import GridCard from "./GridCard";
-
+import React, { useState, useEffect } from 'react'
+import axios from 'axios';
+import GridCard from './GridCard';
 function TopAiringGrid() {
-    let [data1,setData1] = useState("");
-    let [data2,setData2] = useState("");
-    let [data3,setData3] = useState("");
-    let [data4,setData4] = useState("");
-    let [data5,setData5] = useState("");
-    axios.get('https://kitsu.io/api/edge/anime?filter%5Bstatus%5D=current&page%5Blimit%5D=5&sort=-user_count')
-    .then(function (response) {
-        // handle success
-        setData1(response.data.data[0].attributes.posterImage.small);
-        setData2(response.data.data[1].attributes.posterImage.small);
-        setData3(response.data.data[2].attributes.posterImage.small);
-        setData4(response.data.data[3].attributes.posterImage.small);
-        setData5(response.data.data[4].attributes.posterImage.small);
-        // console.log(data1);
-    })
-    .catch(function (error) {
-        // handle error
-        console.log(error);
-    })
-    // sleep(1000);
-    
-    // console.log(data);
-    
+  
+    const [loading, setLoading] = useState(false);
+    const [links, setLinks] = useState([]);
+  
+    useEffect(() => {
+        const loadPost = async () => {
+  
+            // Till the data is fetched using API 
+            // the Loading page will show.
+            setLoading(true);
+  
+            // Await make wait until that 
+            // promise settles and return its reult
+            const response = await axios.get(
+            "https://kitsu.io/api/edge/anime?filter%5Bstatus%5D=current&page%5Blimit%5D=5&sort=-user_count");
+  
+            // After fetching data, stored it in posts state.
+            setLinks(response.data.data);
+
+            // Closed the loading page
+            setLoading(false);
+        }
+  
+        // Call the function
+        loadPost();
+    }, []);
+    // console.log(links);
     return (
-        <div className="explore-grid">
-        <h6 className="margin-left">Top Airing Anime</h6>
+        <div className='explore-grid'>
+        <h6 className='margin-left'>Top Airing Anime</h6>
         <div className="flex-grid margin-left">
-            <GridCard src={data1}/>
-            <GridCard src={data2}/>
-            <GridCard src={data3}/>
-            <GridCard src={data4}/>
-            <GridCard src={data5}/>
-        </div>
-        </div>
+                {loading ? (
+                    <h4>Loading...</h4>) :
+                    (links.map((item) =>
+                        // Presently we only fetch
+                        // title from the API
+                        <GridCard src={item.attributes.posterImage.small}/>
+                    ))
+                }
+            </div>
+            </div>
     )
 }
 
 export default TopAiringGrid;
+
+
+
