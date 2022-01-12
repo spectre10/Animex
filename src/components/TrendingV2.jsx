@@ -4,12 +4,12 @@ import GridCard from './GridCard';
 function TrendingV2() {
   
     const [loading, setLoading] = useState(false);
-    const [posts, setPosts] = useState([]);
+    const [links, setLinks] = useState([]);
   
     useEffect(() => {
         const loadPost = async () => {
   
-            // Till the data is fetch using API 
+            // Till the data is fetched using API 
             // the Loading page will show.
             setLoading(true);
   
@@ -18,8 +18,8 @@ function TrendingV2() {
             const response = await axios.get(
             "https://kitsu.io/api/edge/trending/anime?limit=5");
   
-            // After fetching data stored it in posts state.
-            setPosts(response.data.data);
+            // After fetching data, stored it in posts state.
+            setLinks(response.data.data);
 
             // Closed the loading page
             setLoading(false);
@@ -28,15 +28,14 @@ function TrendingV2() {
         // Call the function
         loadPost();
     }, []);
-    console.log(posts);
-    // let srcImg = posts.data[0].attributes.posterImage.small
+    // console.log(links);
     return (
         <div className='explore-grid'>
-        <h6 className='margin-left'>Trending Anime (This Week) V2</h6>
+        <h6 className='margin-left'>Trending Anime (This Week)</h6>
         <div className="flex-grid margin-left">
                 {loading ? (
                     <h4>Loading...</h4>) :
-                    (posts.map((item) =>
+                    (links.map((item) =>
                         // Presently we only fetch
                         // title from the API
                         <GridCard src={item.attributes.posterImage.small}/>

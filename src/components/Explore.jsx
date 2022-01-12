@@ -2,7 +2,7 @@ import React from "react";
 import Footer from "./Footer";
 import Header from "./Header";
 // import Img from "./Img";
-import TrendingGrid from "./TrendingGrid";
+
 import TopAiringGrid from "./TopAiringGrid";
 import HighestRatedGrid from "./HighestRatedGrid";
 import TopUpcomingGrid from "./TopUpcomingGrid";
@@ -14,7 +14,7 @@ function Explore() {
         <Header/>
         <h1>Explore Anime</h1>
         {/* <Img/> */}
-        <TrendingGrid/>
+        
         <TrendingV2/>
         <TopAiringGrid/>
         <TopUpcomingGrid/>
