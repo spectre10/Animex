@@ -7,7 +7,7 @@ function TrendingGrid() {
     let [data3,setData3] = useState("");
     let [data4,setData4] = useState("");
     let [data5,setData5] = useState("");
-    axios.get('https://kitsu.io/api/edge/trending/anime?page[limit]=5&page[offset]=0')
+    axios.get('https://kitsu.io/api/edge/trending/anime?page%5Blimit%5D=5&page%5Boffset%5D=0')
     .then(function (response) {
         // handle success
         setData1(response.data.data[0].attributes.posterImage.small);

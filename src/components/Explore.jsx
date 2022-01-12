@@ -7,6 +7,7 @@ import TopAiringGrid from "./TopAiringGrid";
 import HighestRatedGrid from "./HighestRatedGrid";
 import TopUpcomingGrid from "./TopUpcomingGrid";
 import PopularGrid from "./PopularGrid";
+import TrendingV2 from "./TrendingV2";
 function Explore() {
     return (
     <div className="explore-div">
@@ -14,6 +15,7 @@ function Explore() {
         <h1>Explore Anime</h1>
         {/* <Img/> */}
         <TrendingGrid/>
+        <TrendingV2/>
         <TopAiringGrid/>
         <TopUpcomingGrid/>
         <PopularGrid/>
