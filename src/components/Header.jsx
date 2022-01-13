@@ -59,7 +59,7 @@ function Header() {
             />
             {/* <Search /> */}
 
-            <a className="nav-link active register" aria-current="page" href="">
+            <a className="nav-link active register header-link" aria-current="page" href="">
               Register
             </a>
           </form>
