@@ -8,7 +8,7 @@ function HighestRatedGrid() {
   
     useEffect(() => {
         const loadPost = async () => {
-  
+            // console.log("hello");
             // Till the data is fetched using API 
             // the Loading page will show.
             setLoading(true);
@@ -28,7 +28,7 @@ function HighestRatedGrid() {
         // Call the function
         loadPost();
     }, []);
-    // console.log(links);
+    // console.log(links[0]);
     return (
         <div className='explore-grid'>
         <h6 className='margin-left'>Highest Rated Anime</h6>
@@ -36,9 +36,7 @@ function HighestRatedGrid() {
                 {loading ? (
                     <h4>Loading...</h4>) :
                     (links.map((item) =>
-                        // Presently we only fetch
-                        // title from the API
-                        <GridCard src={item.attributes.posterImage.small}/>
+                        <GridCard src={item.attributes.posterImage.small} slug={item.attributes.slug}/>
                     ))
                 }
             </div>

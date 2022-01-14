@@ -8,7 +8,7 @@ function Header() {
       <nav className="navbar navbar-dark  ">
         <div className="container-fluid">
           <div className="zoom ">
-            <a className="navbar-brand" href="#">
+            <a className="navbar-brand" href="/">
               <img
                 className="logo"
                 // src="https://i.ibb.co/P6BZgpN/animex-logo.png"
@@ -44,7 +44,7 @@ function Header() {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link header-link" href="#" aria-disabled="true">
+              <a className="nav-link header-link" href="https://github.com/spectre10/Animex" aria-disabled="true">
                 GitHub
               </a>
             </li>

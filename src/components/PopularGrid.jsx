@@ -38,7 +38,7 @@ function PopularGrid() {
                     (links.map((item) =>
                         // Presently we only fetch
                         // title from the API
-                        <GridCard src={item.attributes.posterImage.small}/>
+                        <GridCard src={item.attributes.posterImage.small} slug={item.attributes.slug}/>
                     ))
                 }
             </div>

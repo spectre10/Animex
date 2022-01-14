@@ -4,6 +4,7 @@ import App from "./components/App";
 // import ContactThanks from "./components/ContactThanks";
 // import Contact from "./components/Contact";
 import Explore from "./components/Explore";
+import Anime from "./components/Anime";
 import {
     BrowserRouter,
     Routes,
@@ -18,6 +19,8 @@ ReactDOM.render(
       <Route path="/" element={<App />} />
       <Route path="contact" element={<ContactPage />} />
       <Route path="explore" element={<Explore />} />
+      <Route path="anime/:animeId" element={<Anime />} />
+      
     </Routes>
   </BrowserRouter>,
   rootElement
