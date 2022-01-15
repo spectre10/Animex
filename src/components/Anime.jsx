@@ -4,7 +4,7 @@ import axios from "axios";
 
 export default function Anime() {
     let params = useParams();
-    console.log(params);
+    // console.log(params);
     const [loading, setLoading] = useState(false);
     const [Links,setLinks] = useState([])
     useEffect(() => {
@@ -18,7 +18,7 @@ export default function Anime() {
             // promise settles and return its reult
             const response = await axios.get(
             "https://kitsu.io/api/edge/anime?filter%5Bslug%5D="+params.animeId);
-  
+                
             // After fetching data, stored it in posts state.
             setLinks(response.data.data);
             
@@ -30,7 +30,7 @@ export default function Anime() {
         // Call the function
         loadPost();
     }, []);
-    console.log(Links);
+    // console.log(Links);
     return <div>
      {loading ? (
                     <h4>Loading...</h4>) :

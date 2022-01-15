@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 
 function GridCard(props) {
     let x = "/anime/"+props.slug;
-    // console.log(x);
+    // console.log(props.i);
     return (
+        
         <div className="grid-card flex-div">
         <Link to={x} style={{ textDecoration: 'none' }}> 
     
@@ -15,6 +16,7 @@ function GridCard(props) {
             <button className="card-btn">+</button>
         </div>
         </div>
+       
     )
 }
 

@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import GridCard from './GridCard';
-function TopAiringGrid() {
+function ExploreGrid(props) {
   
     const [loading, setLoading] = useState(false);
     const [links, setLinks] = useState([]);
   
     useEffect(() => {
         const loadPost = async () => {
-  
+            // console.log("hello");
             // Till the data is fetched using API 
             // the Loading page will show.
             setLoading(true);
   
             // Await make wait until that 
             // promise settles and return its reult
-            const response = await axios.get(
-            "https://kitsu.io/api/edge/anime?filter%5Bstatus%5D=current&page%5Blimit%5D=5&sort=-user_count");
+            const response = await axios.get(props.url);
   
             // After fetching data, stored it in posts state.
             setLinks(response.data.data);
@@ -28,17 +27,16 @@ function TopAiringGrid() {
         // Call the function
         loadPost();
     }, []);
-    // console.log(links);
+    console.log(links);
     return (
         <div className='explore-grid'>
-        <h6 className='margin-left'>Top Airing Anime</h6>
+        <h6 className='margin-left'>{props.title}</h6>
         <div className="flex-grid margin-left">
                 {loading ? (
                     <h4>Loading...</h4>) :
-                    (links.map((item) =>
-                        // Presently we only fetch
-                        // title from the API
-                        <GridCard src={item.attributes.posterImage.small} slug={item.attributes.slug}/>
+                    (links.map((item,index) =>
+                      
+                        <GridCard src={item.attributes.posterImage.small} slug={item.attributes.slug} i={index}/>
                     ))
                 }
             </div>
@@ -46,7 +44,9 @@ function TopAiringGrid() {
     )
 }
 
-export default TopAiringGrid;
+export default ExploreGrid;
+
+
 
 
 
