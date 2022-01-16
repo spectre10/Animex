@@ -27,7 +27,7 @@ function ExploreGrid(props) {
         // Call the function
         loadPost();
     }, []);
-    console.log(links);
+    // console.log(links);
     return (
         <div className='explore-grid'>
         <h6 className='margin-left'>{props.title}</h6>
@@ -35,8 +35,9 @@ function ExploreGrid(props) {
                 {loading ? (
                     <h4>Loading...</h4>) :
                     (links.map((item,index) =>
-                      
-                        <GridCard src={item.attributes.posterImage.small} slug={item.attributes.slug} i={index}/>
+                        <React.Fragment key={index}>
+                        <GridCard src={item.attributes.posterImage.small} slug={item.attributes.slug}/>
+                        </React.Fragment>  
                     ))
                 }
             </div>
