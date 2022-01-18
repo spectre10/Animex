@@ -28,12 +28,20 @@ function ExploreGrid(props) {
         loadPost();
     }, []);
     // console.log(links);
+    function x() {
+        return <>
+        <div className='placeholder-item flex-div'></div> 
+        <div className='placeholder-item flex-div'></div> 
+        <div className='placeholder-item flex-div'></div> 
+        <div className='placeholder-item flex-div'></div>
+        <div className='placeholder-item flex-div'></div>
+        </>
+    }
     return (
         <div className='explore-grid'>
         <h6 className='margin-left'>{props.title}</h6>
         <div className="flex-grid margin-left">
-                {loading ? (
-                    <h4>Loading...</h4>) :
+                {loading ? x() :
                     (links.map((item,index) =>
                         <React.Fragment key={index}>
                         <GridCard src={item.attributes.posterImage.small} slug={item.attributes.slug}/>

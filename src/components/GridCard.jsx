@@ -7,8 +7,8 @@ function GridCard(props) {
     return (
         
         <div className="grid-card flex-div">
-        <Link to={x} style={{ textDecoration: 'none' }}> 
-    
+        <Link to={x} style={{ textDecoration: 'none' }}>
+        
         <img className="grid-img" src={props.src}></img>
     
         </Link>
