@@ -11,17 +11,19 @@ import {
     Route
   } from "react-router-dom";
 import ContactPage from "./components/ContactPage";
-
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 const rootElement = document.getElementById("root");
 ReactDOM.render(
   <BrowserRouter>
+    <Header/>
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="contact" element={<ContactPage />} />
       <Route path="explore" element={<Explore />} />
       <Route path="anime/:animeId" element={<Anime />} />
-      
     </Routes>
+    <Footer/>
   </BrowserRouter>,
   rootElement
 );

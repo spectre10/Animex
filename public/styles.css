@@ -50,6 +50,10 @@ nav {
 .header-link:hover {
   color: #d6d6d6;
 }
+.header-link:focus {
+  outline: none;
+  color: white;
+}
 
 .register {
   color: white;
@@ -383,7 +387,7 @@ section::after {
 }
 
 .explore-div h1{
-  padding: 100px 100px 17px 200px;
+  padding: 100px 100px 17px 0;
   /* padding-left: 200px; */
   font-size: 2rem;
   font-weight: 400;
@@ -393,7 +397,7 @@ section::after {
   display: flex;
   margin-bottom: 20px;
   flex-wrap: wrap;
-  width: 60%;
+  width: 70%;
 }
 
 .flex-grid .flex-div{
@@ -423,7 +427,7 @@ h6{
 
 .margin-left{
   /* padding-left: 200px; */
-  margin-left: 200px;
+  margin-left: 150px;
   
 }
 
@@ -518,4 +522,43 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .grid-img{
   border-radius: 4px;
+}
+
+.flex-explore{
+  display: flex;
+}
+
+.flex-item-left{
+  flex-basis: 15%;
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+}
+
+.flex-item-right{
+  flex-basis: 85%;
+}
+
+.sidebar-btn{
+  margin-top: 200px;
+}
+
+.arrow{
+  transition: transform 0.35s ease;
+  
+}
+
+.sidebar-btn[aria-expanded="true"] .arrow{
+  transform: rotate(90deg);
+}
+
+.open{
+  transform: rotate(90deg);
+}
+
+.open2{
+  transform: rotate(66deg);
+}
+.open3{
+  transform: rotate(90deg);
 }

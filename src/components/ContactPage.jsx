@@ -31,11 +31,11 @@ function ContactPage() {
 
     return (
     <div>
-        <Header/>
+        {/* <Header/> */}
         <ContactForm/>
         {/* <div>{data.name}</div> */}
         <Img/>
-        <Footer/>
+        {/* <Footer/> */}
     </div>
     )
 }

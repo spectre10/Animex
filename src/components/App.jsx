@@ -8,11 +8,11 @@ import Grid from "./Grid";
 function App() {
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       {/* {console.log("hello")} */}
       <Img />
       <Grid />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

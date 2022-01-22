@@ -13,7 +13,7 @@ function Header() {
                 className="logo"
                 // src="https://i.ibb.co/P6BZgpN/animex-logo.png"
                 // src="https://i.ibb.co/NKM03vQ/logo.png"
-                src="./images/logo1.png"
+                src="/./images/logo1.png"
                 // src="https://i.ibb.co/3CdS8cn/ANIMEX.png"
                 alt="animex-logo"
                 border="0"
