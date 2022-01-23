@@ -13,6 +13,7 @@ import {
 import ContactPage from "./components/ContactPage";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Category from "./components/Category";
 const rootElement = document.getElementById("root");
 ReactDOM.render(
   <BrowserRouter>
@@ -21,6 +22,7 @@ ReactDOM.render(
       <Route path="/" element={<App />} />
       <Route path="contact" element={<ContactPage />} />
       <Route path="explore" element={<Explore />} />
+      <Route path="categories/:catId" element={<Category />} />
       <Route path="anime/:animeId" element={<Anime />} />
     </Routes>
     <Footer/>

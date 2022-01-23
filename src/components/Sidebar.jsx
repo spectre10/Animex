@@ -1,26 +1,17 @@
-import React,{useState} from "react";
-import Button from 'react-bootstrap/Button';
-import { Collapse } from "react-bootstrap";
-export default function Sidebar() {
-    const [open, setOpen] = useState(false);
-    
-    return (
-      <>
-        <Button
-          onClick={() => setOpen(!open)}
-          aria-controls="example-collapse-text"
-          aria-expanded={open}
-          className="sidebar-btn"
-        >
-          click <i className="fas fa-angle-right arrow"></i>
-        </Button>
-        <Collapse in={open}>
-          <div id="example-collapse-text">
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-            terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
-            labore wes anderson cred nesciunt sapiente ea proident.
-          </div>
-        </Collapse>
-      </>
-    );
+import React from "react";
+import SidebarButton from "./SidebarButton";
+
+
+export default function Sidebar(){
+
+
+
+    return <div className="sidebar-div">
+        <SidebarButton name=" Content Indicators" url="https://kitsu.io/api/edge/categories?fields%5Bcategory%5D=title%2Cslug&filter%5Bparent_id%5D=223&page%5Blimit%5D=50"/>
+        <SidebarButton name=" Dynamic" url="https://kitsu.io/api/edge/categories?fields%5Bcategory%5D=title%2Cslug&filter%5Bparent_id%5D=227&page%5Blimit%5D=50"/>
+        <SidebarButton name=" Elements" url="https://kitsu.io/api/edge/categories?fields%5Bcategory%5D=title%2Cslug&filter%5Bparent_id%5D=228&page%5Blimit%5D=50"/>
+        <SidebarButton name=" Setting" url="https://kitsu.io/api/edge/categories?fields%5Bcategory%5D=title%2Cslug&filter%5Bparent_id%5D=230&page%5Blimit%5D=50"/>
+        <SidebarButton name=" Target Demographics" url="https://kitsu.io/api/edge/categories?fields%5Bcategory%5D=title%2Cslug&filter%5Bparent_id%5D=241&page%5Blimit%5D=50"/>
+        <SidebarButton name=" Themes" url="https://kitsu.io/api/edge/categories?fields%5Bcategory%5D=title%2Cslug&filter%5Bparent_id%5D=231&page%5Blimit%5D=50"/>
+    </div>
 }

@@ -16,7 +16,7 @@ function ExploreGrid(props) {
             // Await make wait until that 
             // promise settles and return its reult
             const response = await axios.get(props.url);
-  
+
             // After fetching data, stored it in posts state.
             setLinks(response.data.data);
 
@@ -48,8 +48,8 @@ function ExploreGrid(props) {
                         </React.Fragment>  
                     ))
                 }
-            </div>
-            </div>
+        </div>
+        </div>
     )
 }
 
