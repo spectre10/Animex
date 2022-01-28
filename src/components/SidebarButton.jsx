@@ -7,7 +7,18 @@ export default function SidebarButton(props) {
     const [open, setOpen] = useState(false);
     const [loading, setLoading] = useState(false);
     const [links, setLinks] = useState([]);
-    
+    // const [enable,setEnable] = useState(false);
+    function handleClick(){
+        setTimeout(()=>{
+          window.location.reload(false);
+        },0); 
+    // }
+    // if (params) {
+    //   useEffect(()=>{
+    //     window.location.reload(false);
+    //   },[params])
+      
+    }
   
     useEffect(() => {
         const loadPost = async () => {
@@ -52,7 +63,7 @@ export default function SidebarButton(props) {
             {loading?(<p>loading</p>):(links.map((item,index)=>{
               let temp="/categories/"+item.attributes.slug;
               return <React.Fragment key={index}>
-                <Link to={temp}>
+                <Link to={temp} onClick={handleClick}>
                 <Button className="sidebar-btn shadow-none drop-btn">{item.attributes.title}</Button>
                 </Link>
               </React.Fragment>

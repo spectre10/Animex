@@ -38,9 +38,9 @@ function ExploreGrid(props) {
         </>
     }
     return (
-        <div className='explore-grid'>
+        <div className={`explore-grid ${props.class}`} >
         <h6 className='margin-left'>{props.title}</h6>
-        <div className="flex-grid margin-left">
+        <div className={`flex-grid margin-left ${props.class}`}>
                 {loading ? x() :
                     (links.map((item,index) =>
                         <React.Fragment key={index}>

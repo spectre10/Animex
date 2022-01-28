@@ -1,6 +1,4 @@
 import React from "react";
-import Footer from "./Footer";
-import Header from "./Header";
 // import Img from "./Img";
 import Sidebar from "./Sidebar";
 import ExploreGrid from "./ExploreGrid";

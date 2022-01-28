@@ -1,8 +1,18 @@
 import React from "react";
 import Search from "./Search";
-import { Link } from "react-router-dom"
+import { Link, Navigate, useNavigate } from "react-router-dom"
 
 function Header() {
+  let navigate = useNavigate();
+  const handleKeyDown =async (event) => {
+    if (event.key === 'Enter') {
+      setTimeout(()=>{
+           window.location.reload(false);
+         },0); 
+      event.preventDefault();
+      let path = "/search/"+ document.getElementById("search-box").value;
+      navigate(path,{ replace: true });
+    }}
   return (
     <div className="nav-fix">
       <nav className="navbar navbar-dark  ">
@@ -56,6 +66,8 @@ function Header() {
               type="search"
               placeholder="Search"
               aria-label="Search"
+              onKeyDown={handleKeyDown}
+              id="search-box"
             />
             {/* <Search /> */}
 
