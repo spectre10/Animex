@@ -9,7 +9,6 @@ function App() {
   return (
     <div>
       {/* <Header /> */}
-      {/* {console.log("hello")} */}
       <Img />
       <Grid />
       {/* <Footer /> */}

@@ -8,7 +8,6 @@ export default function Search() {
   const [loading, setLoading] = useState(false);
   const [links, setLinks] = useState([]);
   const link = "https://kitsu.io/api/edge/anime?filter[text]="+params.searchId;
-  console.log(link);
   useEffect(() => {
         const loadPost = async () => {
             // Till the data is fetched using API 
@@ -26,7 +25,6 @@ export default function Search() {
         // Call the function
         loadPost();
     }, []);
-    console.log(links);
   return <div className="explore-div">
         {/* <Header/> */}
         <div className="flex-explore">

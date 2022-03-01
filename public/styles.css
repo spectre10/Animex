@@ -390,7 +390,7 @@ section::after {
   /* height:50px; */
 }
 
-.p-tag-div p{
+.p-tag-div span{
   margin-bottom: 0;
 }
 
@@ -410,8 +410,6 @@ section::after {
 
 .flex-grid img{
   height: inherit;
-  
-  
 }
 
 .flex-grid a{
@@ -572,7 +570,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 
-sidebar-btn:hover{ 
+.sidebar-btn:hover{ 
   background-color: lightgray;
 }
 

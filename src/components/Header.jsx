@@ -1,5 +1,4 @@
 import React from "react";
-import Search from "./Search";
 import { Link, Navigate, useNavigate } from "react-router-dom"
 
 function Header() {
@@ -54,13 +53,13 @@ function Header() {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link header-link" href="https://github.com/spectre10/Animex" aria-disabled="true">
+              <a className="nav-link header-link" href="https://github.com/spectre10/Animex" aria-disabled="true" target="_blank" rel="noreferrer noopener">
                 GitHub
               </a>
             </li>
           </ul>
 
-          <form className="d-flex">
+          <form className="d-flex" autoComplete="off">
             <input
               className="form-control me-2 search"
               type="search"

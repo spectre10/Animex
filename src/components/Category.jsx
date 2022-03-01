@@ -6,20 +6,11 @@ import ExploreGrid from "./ExploreGrid";
 
 export default function Category() {
     const [loading, setLoading] = useState(false);
-    const [links, setLinks] = useState([]);
-    const [expanded,setExpanded]=useState(false);
-    const [read,setRead] =useState("Read more");
+    const [clicked , setClicked] = useState(false);
+    const [res,setRes]=useState([]);
     let params = useParams();
     function handle(){
-        //   document.getElementById("x").classList.add("z")
-        setExpanded(!expanded);
-        if (expanded===true) {
-            document.getElementById("desc-p").classList.add("cat-desc");
-            setRead("Read more");
-        } else {
-            document.getElementById("desc-p").classList.remove("cat-desc");
-            setRead("Read less");
-        }
+       setClicked(!clicked);
     }
     
     useEffect(() => {
@@ -31,7 +22,7 @@ export default function Category() {
             // promise settles and return its reult
             const response = await axios.get("https://kitsu.io/api/edge/categories?filter%5Bslug%5D="+params.catId);
             // After fetching data, stored it in posts state.
-            setLinks(response.data.data);
+            setRes(response.data.data);
             // console.log(response.data.data);
             // Closed the loading page
             setLoading(false);
@@ -49,15 +40,23 @@ export default function Category() {
     <Sidebar/>
     </div>
     <div className="flex-item-right">
-    {loading?<h1 className="margin-left">loading..</h1>:links.map((item,index)=>{
-        let length = item.attributes.description.length;
-        console.log(length);
-        return <React.Fragment key={index}>
+    {loading?<h1 className="margin-left">loading..</h1>: res.map((item,index)=>{
+        return (
+
+        <React.Fragment key={index}>
         <h1 className="margin-left">{item.attributes.title} Anime</h1>
-        <div className="p-tag-div">
-        <p className="margin-left cat-desc" id="desc-p">{item.attributes.description}</p>
-      
-        {(length>76)?<button className="margin-left underline" onClick={handle} id="btn">{read}</button>:<></>}
+        <div className="p-tag-div margin-left">
+        {item.attributes.description.length < 150 ? <span className="">{item.attributes.description}</span> :
+            (clicked ? 
+            <span className="">
+            {item.attributes.description}
+            <button style={{"border":"none","backgroundColor":"white","color":"red","margin-left":"5px"}} onClick={handle}>Read less</button>
+            </span> :
+            <span className="">
+                {item.attributes.description.slice(0,150)+"..."}
+                <button style={{"border":"none","backgroundColor":"white","color":"red"}} onClick={handle}>Read more</button>
+            </span>)}
+        
         
         </div>
         <hr className="margin-left"></hr>
@@ -65,7 +64,10 @@ export default function Category() {
     <ExploreGrid url={`https://kitsu.io/api/edge/trending/anime?limit=15&in_category=true&category=${item.id}`} title={`Trending ${item.attributes.title} Anime`}/>
     <ExploreGrid url={`https://kitsu.io/api/edge/anime?filter%5Bcategories%5D=${item.attributes.slug}&page%5Blimit%5D=15&sort=-user_count`} title={`Most Popular ${item.attributes.title} Anime`}/>
     </React.Fragment>
+    
+        )
     })}
+        
     </div>
     </div>
     
