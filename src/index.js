@@ -5,21 +5,18 @@ import App from "./components/App";
 // import Contact from "./components/Contact";
 import Explore from "./components/Explore";
 import Anime from "./components/Anime";
-import "./index.css"; 
-import {
-    BrowserRouter,
-    Routes,
-    Route
-  } from "react-router-dom";
+import "./index.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ContactPage from "./components/ContactPage";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Category from "./components/Category";
 import Search from "./components/Search";
+import Signup from "./components/Signup";
 const rootElement = document.getElementById("root");
 ReactDOM.render(
   <BrowserRouter>
-    <Header/>
+    {/* <Header /> */}
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="contact" element={<ContactPage />} />
@@ -27,8 +24,9 @@ ReactDOM.render(
       <Route path="categories/:catId" element={<Category />} />
       <Route path="anime/:animeId" element={<Anime />} />
       <Route path="search/:searchId" element={<Search />} />
+      <Route path="signup" element={<Signup />} />
     </Routes>
-    <Footer/>
+    {/* <Footer /> */}
   </BrowserRouter>,
   rootElement
 );
