@@ -44,7 +44,7 @@ function ExploreGrid(props) {
                 {loading ? x() :
                     (links.map((item,index) =>
                         <React.Fragment key={index}>
-                        <GridCard src={item.attributes.posterImage.small} slug={item.attributes.slug}/>
+                        <GridCard src={item.attributes.posterImage.small} slug={item.attributes.slug} id={item.id}/>
                         </React.Fragment>  
                     ))
                 }

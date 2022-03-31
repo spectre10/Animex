@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 // import Img from "./Img";
 import Sidebar from "./Sidebar";
 import ExploreGrid from "./ExploreGrid";
+import { UserContext } from "./UserContext";
 
 function Explore() {
+    const msg = useContext(UserContext);
     return (
     <div className="explore-div">
         {/* <Header/> */}
@@ -21,6 +23,7 @@ function Explore() {
         <ExploreGrid url="https://kitsu.io/api/edge/anime?sort=ratingRank&page[limit]=5&page[offset]=0" title="Highest Rated Anime"/>
         </div>
         </div>
+        {/* <div>{msg}</div> */}
         {/* <Footer/> */}
     </div>
     )

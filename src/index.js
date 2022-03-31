@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App";
 // import ContactThanks from "./components/ContactThanks";
@@ -13,20 +13,10 @@ import Footer from "./components/Footer";
 import Category from "./components/Category";
 import Search from "./components/Search";
 import Signup from "./components/Signup";
+import { UserContext } from "./components/UserContext";
+import Library from "./components/Library";
 const rootElement = document.getElementById("root");
 ReactDOM.render(
-  <BrowserRouter>
-    {/* <Header /> */}
-    <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="contact" element={<ContactPage />} />
-      <Route path="explore" element={<Explore />} />
-      <Route path="categories/:catId" element={<Category />} />
-      <Route path="anime/:animeId" element={<Anime />} />
-      <Route path="search/:searchId" element={<Search />} />
-      <Route path="signup" element={<Signup />} />
-    </Routes>
-    {/* <Footer /> */}
-  </BrowserRouter>,
+  <App/>,
   rootElement
 );

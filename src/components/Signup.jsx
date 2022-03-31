@@ -1,32 +1,32 @@
-import axios, { Axios } from "axios";
+import axios from "axios";
+import {useNavigate} from "react-router-dom";
 export default function Signup() {
+  const navigate = useNavigate();
+  async function logout() {
+    const response = await axios.post("/user/logout",{withCredentials: true})
+    console.log(response);
+    if (response.statusText && window){ 
+      // window.location.href="/thankyou"; 
+      return navigate("/"); 
+    }
+    // var form = document.createElement("form");
+    // form.setAttribute("method", "POST");
+    // form.setAttribute("action", "http://localhost:5000/logout");
+    // document.body.appendChild(form);
+    // form.submit();
+  }
   function handle() {
-  //   fetch('http://localhost:5000/auth/google',{
-  //     method:"GET"
-  //   })
-  // .then(response => response.json())
-  // .then(data => console.log(data));
+    var form = document.createElement("form");
+    form.setAttribute("method", "GET");
+    form.setAttribute("action", "http://localhost:5000/auth/google");
 
-// axios.get("/auth/google")
-
-var form = document.createElement('form');
-  form.setAttribute('method', 'GET');
-  form.setAttribute('action', 'http://localhost:5000/auth/google');
-  
-  // var idInput = document.createElement('input');
-  // idInput.setAttribute('type', 'hidden');
-  // idInput.setAttribute('name', 'client_id');
-  // idInput.setAttribute('value', 'myapplicationsgoogleclientid');
-  // form.appendChild(idInput);
-  
-  //.. all other parameters (input elements) I need in my request.
-  
-  document.body.appendChild(form);
-  form.submit();
+    document.body.appendChild(form);
+    form.submit();
   }
   return (
     <>
-      <button onClick={handle}>Signup</button>
+      <button onClick={handle} className="mt-60">login</button>
+      <button onClick={logout}>logout</button>
     </>
   );
 }

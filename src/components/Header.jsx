@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom"
+import { UserContext } from "./UserContext";
 
 function Header() {
   let navigate = useNavigate();
+  const {user,setUser}= useContext(UserContext);
   const handleKeyDown =async (event) => {
     if (event.key === 'Enter') {
       setTimeout(()=>{
@@ -43,7 +45,7 @@ function Header() {
               </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link header-link" href="#">
+              <a className="nav-link header-link" href="/library">
                 Library
               </a>
             </li>
@@ -69,10 +71,16 @@ function Header() {
               id="search-box"
             />
             {/* <Search /> */}
-
-            <a className="nav-link active register header-link" aria-current="page" href="">
+            {
+              user?<a className="nav-link active register header-link" aria-current="page" href="/signup">
+              xyz
+            </a>:<a className="nav-link active register header-link" aria-current="page" href="/signup">
               Register
             </a>
+            }
+            {/* <a className="nav-link active register header-link" aria-current="page" href="/signup">
+              Register
+            </a> */}
           </form>
         </div>
       </nav>
