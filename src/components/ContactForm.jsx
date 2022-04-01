@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 // import Header from "./Header";
 // import Footer from "./Footer";
 // import Img from "./Img";
@@ -9,18 +9,17 @@ import reactDom,{render} from "react-dom";
 const axios = require('axios').default;
 
 function ContactForm() {
-  // const [formData, updateFormData] = React.useState(initialFormData);
-  const [name, setName] = useState("");
+  const nameRef = useRef();
   const [email, setEmail] = useState("");
-  const [message,setMessage] = useState("");
-  
+  const messageRef = useRef();
+  const [submitState  ,setSubmitState] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     axios.post('/contact', {
       "email":email,
-      "name":name,
-      "message":message
+      "name":nameRef.current.value,
+      "message":messageRef.current.value
     })
     .then(function (response) {
       console.log(response);
@@ -28,15 +27,16 @@ function ContactForm() {
     .catch(function (error) {
       console.log(error);
     });
-    render(
-      <div className="thanks-div">
-      <h1 style={{color:"white"}}>Thanks!</h1>
-      </div>
-      ,document.getElementById("myForm"));
+    setSubmitState(true);
+  //   render(
+  //     <div className="thanks-div">
+  //     <h1 style={{color:"white"}}>Thanks!</h1>
+  //     </div>
+  //     ,document.getElementById("myForm"));
   };
-  return (
-    
-      
+  return (  submitState ? (<div className="contact-form"><div className="thanks-div">
+    <h1 style={{color:"white"}}>Thanks!</h1>
+    </div></div>):(  
     <div className="contact-form">
       <form id="myForm" name="myForm">
       
@@ -63,8 +63,8 @@ function ContactForm() {
             placeholder="Name"
             autoComplete="off"
             name="name"
-            onChange={(e) => setName(e.target.value)}
-
+            // onChange={(e) => setName(e.target.value)}
+            ref={nameRef}
             // onChange={handleChange} 
           />
           <label htmlFor="floatingText">Name</label>
@@ -79,8 +79,8 @@ function ContactForm() {
             style={{ height: "150px" }}
             autoComplete="off"
             name="message"
-            onChange={(e) => setMessage(e.target.value)}
-
+            // onChange={(e) => setMessage(e.target.value)}
+            ref={messageRef}
             // onChange={handleChange} 
             />
             <label htmlFor="floatingTextarea2">Message</label>
@@ -92,8 +92,8 @@ function ContactForm() {
       
     
     </div>
-    
-  );
+) )   
+  
 }
 
 export default ContactForm;
