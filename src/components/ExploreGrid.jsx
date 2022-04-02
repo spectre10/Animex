@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import GridCard from './GridCard';
-function ExploreGrid(props) {
+import { useCountRenders } from './useCountRenders';
+const ExploreGrid = React.memo(function ExploreGrid(props) {
   
     const [loading, setLoading] = useState(false);
     const [links, setLinks] = useState([]);
-  
+    // useCountRenders();
     useEffect(() => {
         const loadPost = async () => {
             // console.log("hello");
@@ -51,7 +52,7 @@ function ExploreGrid(props) {
         </div>
         </div>
     )
-}
+})
 
 export default ExploreGrid;
 

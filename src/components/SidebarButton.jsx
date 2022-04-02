@@ -5,7 +5,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 export default function SidebarButton(props) {
     const [open, setOpen] = useState(false);
-    const [loading, setLoading] = useState(false);
+    // const [loading, setLoading] = useState(false);
     const [links, setLinks] = useState([]);
     // const [enable,setEnable] = useState(false);
     function handleClick(){
@@ -25,7 +25,7 @@ export default function SidebarButton(props) {
             // console.log("hello");
             // Till the data is fetched using API 
             // the Loading page will show.
-            setLoading(true);
+            // setLoading(true);
   
             // Await make wait until that 
             // promise settles and return its reult
@@ -36,7 +36,7 @@ export default function SidebarButton(props) {
             // setLinks([1,2,3]);
 
             // Closed the loading page
-            setLoading(false);
+            // setLoading(false);
         }
   
         // Call the function
@@ -60,14 +60,14 @@ export default function SidebarButton(props) {
         <Collapse in={open}>
           <div id="example-collapse-text">
             {/* <Button className="sidebar-btn shadow-none drop-btn">Violence</Button> */}
-            {loading?(<p>loading</p>):(links.map((item,index)=>{
+            {links.map((item,index)=>{
               let temp="/categories/"+item.attributes.slug;
               return <React.Fragment key={index}>
                 <Link to={temp} onClick={handleClick}>
                 <Button className="sidebar-btn shadow-none drop-btn">{item.attributes.title}</Button>
                 </Link>
               </React.Fragment>
-            }))}
+            })}
           </div>
         </Collapse>
       </>

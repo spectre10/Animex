@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom";
 // import ContactThanks from "./ContactThanks";
 // import Contact from "./Contact";
@@ -15,32 +15,45 @@ import { UserContext } from "./UserContext";
 import Library from "./Library";
 import Home from "./Home";
 import axios from "axios";
-export default function App() {
+import { useCountRenders } from "./useCountRenders";
+function App() {
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   // const [links, setLinks] = useState({});
-  
+  // const userRef = useRef();
+  // const response = null;
   useEffect(() => {
     const loadPost = async () => {
         // console.log("hello");
         // Till the data is fetched using API 
         // the Loading page will show.
-        setLoading(true);
+        // setLoading(true);
         
         // Await make wait until that 
         // promise settles and return its reult
         const response = await axios.get("/auth/user", {withCredentials:true});
         // console.log(response.data);
         // After fetching data, stored it in posts state.
-        setUser(response.data);
+
+        // useCallback(
+        //   () => {
+        //     setUser(response.data);
+        //   },
+        //   [setUser],
+        // )
+        if (response.data) {
+          
+          setUser(response.data);
+        }
         // Closed the loading page
-        setLoading(false);
+        // setLoading(false);
       }
       
       // Call the function
       loadPost();
     }, []);
     console.log("user: ",user);
+    useCountRenders();
   return (
     <BrowserRouter>
       <UserContext.Provider value={{ user, setUser }}>
@@ -60,3 +73,5 @@ export default function App() {
     </BrowserRouter>
   );
 }
+
+export default React.memo(App);

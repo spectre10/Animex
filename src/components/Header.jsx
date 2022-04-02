@@ -1,19 +1,20 @@
 import React, { useContext } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom"
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { UserContext } from "./UserContext";
 
 function Header() {
   let navigate = useNavigate();
-  const {user,setUser}= useContext(UserContext);
-  const handleKeyDown =async (event) => {
-    if (event.key === 'Enter') {
-      setTimeout(()=>{
-           window.location.reload(false);
-         },0); 
+  const { user, setUser } = useContext(UserContext);
+  const handleKeyDown = async (event) => {
+    if (event.key === "Enter") {
+      setTimeout(() => {
+        window.location.reload(false);
+      }, 0);
       event.preventDefault();
-      let path = "/search/"+ document.getElementById("search-box").value;
-      navigate(path,{ replace: true });
-    }}
+      let path = "/search/" + document.getElementById("search-box").value;
+      navigate(path, { replace: true });
+    }
+  };
   return (
     <div className="nav-fix">
       <nav className="navbar navbar-dark  ">
@@ -35,7 +36,12 @@ function Header() {
           </div>
           <ul className="nav navlink-div">
             <li className="nav-item">
-              <Link to="/" className="nav-link header-link" aria-current="page" href="#">
+              <Link
+                to="/"
+                className="nav-link header-link"
+                aria-current="page"
+                href="#"
+              >
                 Home
               </Link>
             </li>
@@ -55,7 +61,13 @@ function Header() {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link header-link" href="https://github.com/spectre10/Animex" aria-disabled="true" target="_blank" rel="noreferrer noopener">
+              <a
+                className="nav-link header-link"
+                href="https://github.com/spectre10/Animex"
+                aria-disabled="true"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
                 GitHub
               </a>
             </li>
@@ -71,13 +83,23 @@ function Header() {
               id="search-box"
             />
             {/* <Search /> */}
-            {
-              user?<a className="nav-link active register header-link" aria-current="page" href="/signup">
-              xyz
-            </a>:<a className="nav-link active register header-link" aria-current="page" href="/signup">
-              Register
-            </a>
-            }
+            {user ? (
+              <Link
+                className="nav-link active register header-link"
+                aria-current="page"
+                to="/signup"
+              >
+                {user.username}
+              </Link>
+            ) : (
+              <Link
+                className="nav-link active register header-link"
+                aria-current="page"
+                to="/signup"
+              >
+                Register
+              </Link>
+            )}
             {/* <a className="nav-link active register header-link" aria-current="page" href="/signup">
               Register
             </a> */}

@@ -50,7 +50,7 @@ function Card() {
           <div className="content">
             <div className="imgBx">
               <img
-                src="https://image.flaticon.com/icons/png/256/4213/4213641.png"
+                src=""
                 alt=""
               />
               {/* <i class="fas fa-search fa-8x"></i> */}

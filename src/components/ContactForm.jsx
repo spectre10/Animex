@@ -5,41 +5,46 @@ import React, { useRef, useState } from "react";
 // import { dividerClasses } from "@mui/material";
 // import ContactThanks from "./ContactThanks"
 // import { Link } from "react-router-dom";
-import reactDom,{render} from "react-dom";
-const axios = require('axios').default;
+import reactDom, { render } from "react-dom";
+const axios = require("axios").default;
 
 function ContactForm() {
   const nameRef = useRef();
   const [email, setEmail] = useState("");
   const messageRef = useRef();
-  const [submitState  ,setSubmitState] = useState(false);
-
+  const [submitState, setSubmitState] = useState(false);
+  const renders = useRef(0);
+  console.log("hello renders: ", renders.current++);
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post('/contact', {
-      "email":email,
-      "name":nameRef.current.value,
-      "message":messageRef.current.value
-    })
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+    axios
+      .post("/contact", {
+        email: email,
+        name: nameRef.current.value,
+        message: messageRef.current.value,
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
     setSubmitState(true);
-  //   render(
-  //     <div className="thanks-div">
-  //     <h1 style={{color:"white"}}>Thanks!</h1>
-  //     </div>
-  //     ,document.getElementById("myForm"));
+    //   render(
+    //     <div className="thanks-div">
+    //     <h1 style={{color:"white"}}>Thanks!</h1>
+    //     </div>
+    //     ,document.getElementById("myForm"));
   };
-  return (  submitState ? (<div className="contact-form"><div className="thanks-div">
-    <h1 style={{color:"white"}}>Thanks!</h1>
-    </div></div>):(  
+  return submitState ? (
+    <div className="contact-form">
+      <div className="thanks-div">
+        <h1 style={{ color: "white" }}>Thanks!</h1>
+      </div>
+    </div>
+  ) : (
     <div className="contact-form">
       <form id="myForm" name="myForm">
-      
         <div className="form-floating mb-3 col-4 ">
           <input
             type="email"
@@ -50,7 +55,7 @@ function ContactForm() {
             name="email"
             onChange={(e) => setEmail(e.target.value)}
 
-            // onChange={handleChange} 
+            // onChange={handleChange}
           />
           <label htmlFor="floatingInput">Email address</label>
         </div>
@@ -65,35 +70,37 @@ function ContactForm() {
             name="name"
             // onChange={(e) => setName(e.target.value)}
             ref={nameRef}
-            // onChange={handleChange} 
+            // onChange={handleChange}
           />
           <label htmlFor="floatingText">Name</label>
         </div>
-      
+
         <div>
           <div className="form-floating col-4 mb-3">
             <textarea
-            className="form-control"
-            placeholder="Leave a message here"
-            id="floatingTextarea2"
-            style={{ height: "150px" }}
-            autoComplete="off"
-            name="message"
-            // onChange={(e) => setMessage(e.target.value)}
-            ref={messageRef}
-            // onChange={handleChange} 
+              className="form-control"
+              placeholder="Leave a message here"
+              id="floatingTextarea2"
+              style={{ height: "150px" }}
+              autoComplete="off"
+              name="message"
+              // onChange={(e) => setMessage(e.target.value)}
+              ref={messageRef}
+              // onChange={handleChange}
             />
             <label htmlFor="floatingTextarea2">Message</label>
           </div>
         </div>
-        <button className="btn btn-primary" type="submit" onClick={handleSubmit}>Let's Talk!</button>
-      
+        <button
+          className="btn btn-primary"
+          type="submit"
+          onClick={handleSubmit}
+        >
+          Let's Talk!
+        </button>
       </form>
-      
-    
     </div>
-) )   
-  
+  );
 }
 
 export default ContactForm;

@@ -3,9 +3,11 @@ import React, { useContext } from "react";
 import Sidebar from "./Sidebar";
 import ExploreGrid from "./ExploreGrid";
 import { UserContext } from "./UserContext";
+// import { useCountRenders } from "./useCountRenders";
 
 function Explore() {
-    const msg = useContext(UserContext);
+    // const msg = useContext(UserContext);
+    // useCountRenders();
     return (
     <div className="explore-div">
         {/* <Header/> */}
@@ -29,4 +31,4 @@ function Explore() {
     )
 }
 
-export default Explore;
+export default React.memo(Explore);
