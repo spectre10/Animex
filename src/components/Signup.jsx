@@ -1,9 +1,10 @@
 import axios from "axios";
-import { useContext } from "react";
+// import { useContext } from "react";
 import {useNavigate} from "react-router-dom";
-import { UserContext } from "./UserContext";
+import { useProfile } from "./UserContext";
+// import { UserContext } from "./UserContext";
 export default function Signup() {
-  const { user, setUser } = useContext(UserContext);
+  const { user, setUser } = useProfile();
   const navigate = useNavigate();
   async function logout() {
     const response = await axios.post("/user/logout",{withCredentials: true})
@@ -30,7 +31,7 @@ export default function Signup() {
   return (
     <>
       <button onClick={handle} className="mt-60">login</button>
-      <button onClick={logout}>logout</button>
+      <button onClick={logout} className="">logout</button>
     </>
   );
 }

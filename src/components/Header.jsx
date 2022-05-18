@@ -1,10 +1,13 @@
 import React, { useContext } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
-import { UserContext } from "./UserContext";
-
+import { useCountRenders } from "./useCountRenders";
+// import { UserContext } from "./UserContext";
+import { useProfile } from "./UserContext";
 function Header() {
   let navigate = useNavigate();
-  const { user, setUser } = useContext(UserContext);
+  // const { user, setUser } = useContext(UserContext);
+  const { user } = useProfile();
+  // console.log(user);
   const handleKeyDown = async (event) => {
     if (event.key === "Enter") {
       setTimeout(() => {
@@ -15,6 +18,7 @@ function Header() {
       navigate(path, { replace: true });
     }
   };
+  // useCountRenders();
   return (
     <div className="nav-fix">
       <nav className="navbar navbar-dark  ">
@@ -51,9 +55,9 @@ function Header() {
               </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link header-link" href="/library">
+              <Link className="nav-link header-link" to="/library">
                 Library
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
               <a className="nav-link header-link" href="#" aria-disabled="true">
@@ -110,4 +114,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default React.memo(Header);

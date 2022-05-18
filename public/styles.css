@@ -613,3 +613,20 @@ input[type="search"]::-webkit-search-results-decoration {
 body{
   position: relative;
 } 
+
+.menu {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  /* background: #ffffff; */
+  background: #d6d5d5;
+}
+.menu-item {
+  cursor: pointer;
+  padding: 5px;
+  height: 28px;
+  border-bottom: 1px solid rgb(187, 187, 187);
+}
+.menu-item:hover {
+  color: #2980b9;
+}

@@ -11,27 +11,32 @@ import Footer from "./Footer";
 import Category from "./Category";
 import Search from "./Search";
 import Signup from "./Signup";
-import { UserContext } from "./UserContext";
+// import { UserContext } from "./UserContext";
 import Library from "./Library";
 import Home from "./Home";
 import axios from "axios";
 import { useCountRenders } from "./useCountRenders";
+import { UserProvider } from "./UserContext";
 function App() {
-  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
   // const [loading, setLoading] = useState(false);
   // const [links, setLinks] = useState({});
   // const userRef = useRef();
   // const response = null;
-  useEffect(() => {
-    const loadPost = async () => {
+  
+  
+  // useEffect(() => {
+  //   const loadPost = async () => {
+        
         // console.log("hello");
         // Till the data is fetched using API 
         // the Loading page will show.
         // setLoading(true);
-        
         // Await make wait until that 
         // promise settles and return its reult
-        const response = await axios.get("/auth/user", {withCredentials:true});
+
+        // const response = await axios.get("/auth/user", {withCredentials:true});
+        
         // console.log(response.data);
         // After fetching data, stored it in posts state.
 
@@ -41,22 +46,26 @@ function App() {
         //   },
         //   [setUser],
         // )
-        if (response.data) {
+      
+      
+        // if (response.data) {
           
-          setUser(response.data);
-        }
+        //   setUser(response.data);
+        // }
+      
+      
         // Closed the loading page
         // setLoading(false);
-      }
+      // }
       
       // Call the function
-      loadPost();
-    }, []);
-    console.log("user: ",user);
-    useCountRenders();
-  return (
+      // loadPost();
+    // }, []);
+    // console.log("user: ",user);
+    // useCountRenders();
+  return (<>
     <BrowserRouter>
-      <UserContext.Provider value={{ user, setUser }}>
+      <UserProvider>
         <Header />
         <Routes>
           <Route exact path="/" element={<Home />} />
@@ -68,9 +77,10 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/library" element={<Library />}></Route>
         </Routes>
+      </UserProvider>
         <Footer />
-      </UserContext.Provider>
     </BrowserRouter>
+        </>
   );
 }
 

@@ -5,7 +5,7 @@ import App from "./components/App";
 // // import Contact from "./components/Contact";
 // import Explore from "./components/Explore";
 // import Anime from "./components/Anime";
-// import "./index.css";
+import "./index.css";
 // import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import ContactPage from "./components/ContactPage";
 // import Header from "./components/Header";
