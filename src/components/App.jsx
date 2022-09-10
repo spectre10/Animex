@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 // import ContactThanks from "./ContactThanks";
 // import Contact from "./Contact";
 import Explore from "./Explore";
-import Anime from "./Anime";
+import Animecard from "./Animecard";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ContactPage from "./ContactPage";
 import Header from "./Header";
@@ -72,7 +72,7 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/explore" element={<Explore />} />
           <Route path="/categories/:catId" element={<Category />} />
-          <Route path="/anime/:animeId" element={<Anime />} />
+          <Route path="/anime/:animeId" element={<Animecard />} />
           <Route path="/search/:searchId" element={<Search />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/library" element={<Library />}></Route>

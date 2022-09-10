@@ -1,5 +1,6 @@
 // import axios from "axios";
 import React, { useState } from "react";
+import { OverlayTrigger ,Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Popup from "reactjs-popup";
 // import 'reactjs-popup/dist/index.css';
@@ -29,7 +30,17 @@ function GridCard(props) {
     console.log(response);
   }
   return (
-    <div className="grid-card flex-div group">
+    <div className="hover:scale-105 transition transform card-parent">
+    <OverlayTrigger
+      placement="bottom"
+      delay={100}
+      overlay={
+        <Tooltip id="tooltip-bottom">
+          {props.slug}
+        </Tooltip>
+      }
+      >
+    <div className="grid-card flex-div group ">
       <Link to={x} style={{ textDecoration: "none" }}>
         <img
           className="g-img filter absolute"
@@ -38,7 +49,7 @@ function GridCard(props) {
           id=""
           style={s}
         ></img>
-        <div className="bg-gradient-to-t group-hover:from-[#000000cc] group-hover:to-[#0000001a] group-hover:bg-opacity-50 hover:rounded-md h-full w-full relative"></div>
+        <div className="bg-gradient-to-t group-hover:from-[#000000cc] group-hover:to-[#0000001a] group-hover:bg-opacity-50 group-hover:rounded-md h-full w-full relative"></div>
       </Link>
       <div className="card-btn-div">
         {/* <button className="card-btn" onClick={plusHandle}>
@@ -67,7 +78,7 @@ function GridCard(props) {
           arrow={false}
         >
           <div className="menu rounded-md">
-            <div className="menu-item"> Currently Watching</div>
+            <div className="menu-item" onClick={plusHandle}> Currently Watching</div>
             <div className="menu-item"> Want to Watch</div>
             <div className="menu-item"> Completed</div>
             <div className="menu-item"> On Hold</div>
@@ -75,6 +86,8 @@ function GridCard(props) {
           </div>
         </Popup>
       </div>
+    </div>
+      </OverlayTrigger>
     </div>
   );
 }

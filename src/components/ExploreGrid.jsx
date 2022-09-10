@@ -48,7 +48,7 @@ const ExploreGrid = React.memo(function ExploreGrid(props) {
   return (
     <div className={`explore-grid ${props.class}`}>
       <h6 className="margin-left">{props.title}</h6>
-      <div className={`flex-grid margin-left ${props.class}`}>
+      <div className={`flex flex-wrap gap-2 w-full margin-left ${props.class}`}>
         {loading
           ? x()
           : link.current.map((item, index) => (
