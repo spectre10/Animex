@@ -16,7 +16,7 @@ function GridCard(props) {
   // console.log(props.i);
   function load() {}
 
-  async function plusHandle() {
+  async function dropped() {
     setPopup(!popup);
     console.log(props.id);
     const response = await fetch("/user/add", {
@@ -25,6 +25,63 @@ function GridCard(props) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         id: props.id,
+        lib_t: "dropped",
+      }),
+    });
+    console.log(response);
+  }
+  async function currentlywatching() {
+    setPopup(!popup);
+    console.log(props.id);
+    const response = await fetch("/user/add", {
+      method: "POST",
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id: props.id,
+        lib_t: "currentlyWatching",
+      }),
+    });
+    console.log(response);
+  }
+  async function wantto() {
+    setPopup(!popup);
+    console.log(props.id);
+    const response = await fetch("/user/add", {
+      method: "POST",
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id: props.id,
+        lib_t: "wantTo",
+      }),
+    });
+    console.log(response);
+  }
+  async function completed() {
+    setPopup(!popup);
+    console.log(props.id);
+    const response = await fetch("/user/add", {
+      method: "POST",
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id: props.id,
+        lib_t: "completed",
+      }),
+    });
+    console.log(response);
+  }
+  async function onhold() {
+    setPopup(!popup);
+    console.log(props.id);
+    const response = await fetch("/user/add", {
+      method: "POST",
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id: props.id,
+        lib_t: "onHold",
       }),
     });
     console.log(response);
@@ -65,7 +122,7 @@ function GridCard(props) {
         )} */}
         <Popup
           trigger={
-            <button className="card-btn" onClick={plusHandle}>
+            <button className="card-btn" >
               +
             </button>
           }
@@ -78,11 +135,11 @@ function GridCard(props) {
           arrow={false}
         >
           <div className="menu rounded-md">
-            <div className="menu-item" onClick={plusHandle}> Currently Watching</div>
-            <div className="menu-item"> Want to Watch</div>
-            <div className="menu-item"> Completed</div>
-            <div className="menu-item"> On Hold</div>
-            <div className="menu-item"> Dropped</div>
+            <div className="menu-item" onClick={currentlywatching}> Currently Watching</div>
+            <div className="menu-item" onClick={wantto}> Want to Watch</div>
+            <div className="menu-item" onClick={completed}> Completed</div>
+            <div className="menu-item" onClick={onhold}> On Hold</div>
+            <div className="menu-item" onClick={dropped}> Dropped</div>
           </div>
         </Popup>
       </div>

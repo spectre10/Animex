@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useCountRenders } from "./useCountRenders";
 // import { UserContext } from "./UserContext";
 import { useProfile } from "./UserContext";
@@ -96,14 +96,14 @@ function Header() {
                 {user.username}
               </Link>
             ) : (
-              <Link
-                className="nav-link active register header-link"
-                aria-current="page"
-                to="/signup"
-              >
-                Register
-              </Link>
-            )}
+                <Link
+                  className="nav-link active register header-link"
+                  aria-current="page"
+                  to="/signup"
+                >
+                  Register
+                </Link>
+              )}
             {/* <a className="nav-link active register header-link" aria-current="page" href="/signup">
               Register
             </a> */}
