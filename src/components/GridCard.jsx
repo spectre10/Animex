@@ -93,7 +93,7 @@ function GridCard(props) {
       delay={100}
       overlay={
         <Tooltip id="tooltip-bottom">
-          {props.slug}
+          {props.nme}
         </Tooltip>
       }
       >

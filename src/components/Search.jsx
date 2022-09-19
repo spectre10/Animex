@@ -3,7 +3,8 @@ import { useInfiniteQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Sidebar from './Sidebar';
-import ExploreGrid from './ExploreGrid';
+// import ExploreGrid from './ExploreGrid';
+import SearchGrid from './SearchGrid';
 export default function Search() {
   let params = useParams();
   const [loading, setLoading] = useState(false);
@@ -28,6 +29,7 @@ export default function Search() {
     // Call the function
     loadPost();
   }, []);
+  // const res_test = await axios.get(link);
   return <div className="explore-div">
     {/* <Header/> */}
     <div className="flex-explore">
@@ -37,9 +39,9 @@ export default function Search() {
       </div>
       <div className="flex-item-right">
         <h1 className="margin-left">Search Results For "{params.searchId}"</h1>
-        <ExploreGrid url={link + "&page[limit]=20"} title="" class="explore-grid-search" />
-        {/* <ExploreGrid url={link + "&page[limit]=20&page[offset]=21"} title="" class="explore-grid-search" /> */}
-        <ExploreGrid url={link + pageLimit} title="" class="explore-grid-search" />
+        <SearchGrid url={link + "&page[limit]=20"} title="" class="explore-grid-search" />
+        {/* <SearchGrid url={link + "&page[limit]=20&page[offset]=21"} title="" class="explore-grid-search" /> */}
+        {/* <ExploreGrid url={link + pageLimit} title="" class="explore-grid-search" /> */}
       </div>
     </div>
     {/* <Footer/> */}

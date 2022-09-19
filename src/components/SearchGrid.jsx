@@ -1,15 +1,17 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import GridCard from "./GridCard";
-import { useCountRenders } from "./useCountRenders";
+// import { useCountRenders } from "./useCountRenders";
 const ExploreGrid = React.memo(function ExploreGrid(props) {
   let myController = new AbortController();
   let mySignal = myController.signal;
 
   const [loading, setLoading] = useState(true);
   //   const [links, setLinks] = useState([]);
+  const [reload, setLoad] = useState(0);
   const link = useRef([]);
   const isCurrent = useRef(true);
+  let page_offset = 21;
   useEffect(() => {
     return () => {
       isCurrent.current = false;
@@ -24,16 +26,42 @@ const ExploreGrid = React.memo(function ExploreGrid(props) {
         signal: mySignal,
       });
       //   setLinks(response.data.data);
+      const res_test = await axios.get(props.url + "&page[offset]=" + (page_offset).toString());
+      setTimeout(() => {
+        // link.current.push(res_test.data.data[0]);
+        link.current = link.current.concat(res_test.data.data);
+        updateState();
+      }, 1);
       link.current = response.data.data;
       setLoading(false);
     }
   }
   useEffect(() => {
     console.log("mounted");
+    window.addEventListener("scroll", handleScroll, { passive: true });
     load();
+    return () => { window.removeEventListener('scroll', handleScroll); }
   }, []);
-  // console.log(isCurrent.current);
-  //   useCountRenders();
+  let updateState = async () => {
+    setLoad(Math.random());
+  }
+  const handleScroll = async () => {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop
+
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight
+
+    const scrolled = winScroll / height
+    if (scrolled > 0.8) {
+      window.removeEventListener('scroll', handleScroll)
+      page_offset += 20
+      const nextRes = await axios.get(props.url + "&page[offset]=" + (page_offset).toString());
+      setTimeout(() => {
+        link.current = link.current.concat(nextRes.data.data);
+        updateState();
+      }, 1);
+      window.addEventListener("scroll", handleScroll, { passive: true });
+    }
+  }
   function x() {
     return (
       <>
