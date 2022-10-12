@@ -84,7 +84,7 @@ const ExploreGrid = React.memo(function ExploreGrid(props) {
               <GridCard
                 src={item.attributes.posterImage.small}
                 slug={item.attributes.slug}
-                nme={item.attributes.titles.en}
+                nme={item.attributes.titles}
                 id={item.id}
               />
             </React.Fragment>

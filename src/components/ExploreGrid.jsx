@@ -8,6 +8,7 @@ const ExploreGrid = React.memo(function ExploreGrid(props) {
 
   const [loading, setLoading] = useState(true);
   //   const [links, setLinks] = useState([]);
+  // const [name, setName] = useState();
   const link = useRef([]);
   const isCurrent = useRef(true);
   useEffect(() => {
@@ -25,7 +26,8 @@ const ExploreGrid = React.memo(function ExploreGrid(props) {
       });
       //   setLinks(response.data.data);
       link.current = response.data.data;
-      setLoading(false);
+      // if (link.current.)
+        setLoading(false);
     }
   }
   useEffect(() => {
@@ -51,16 +53,20 @@ const ExploreGrid = React.memo(function ExploreGrid(props) {
       <div className={`flex flex-wrap gap-2 w-full margin-left ${props.class}`}>
         {loading
           ? x()
-          : link.current.map((item, index) => (
-            <React.Fragment key={index}>
-              <GridCard
-                src={item.attributes.posterImage.small}
-                slug={item.attributes.slug}
-                nme={item.attributes.titles.en}
-                id={item.id}
-              />
-            </React.Fragment>
-          ))}
+          : link.current.map((item, index) => {
+            // let n = item.attributes.titles.en;
+            // let name = (typeof n)==='undefined'?item.attributes.title.en:item.attributes.titles.jp;
+            return (
+              <React.Fragment key={index}>
+                <GridCard
+                  src={item.attributes.posterImage.small}
+                  slug={item.attributes.slug}
+                  nme={item.attributes.titles}
+                  id={item.id}
+                />
+              </React.Fragment>
+            )
+          })}
       </div>
     </div>
   );
