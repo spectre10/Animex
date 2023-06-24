@@ -65,7 +65,7 @@ const Description = ({item, include}) => {
   {include.map((link, ind) => { 
     return <div key={ind} className="inline mt-3 col-span-2">
     <li className="inline"> 
-      <Link to={"/category/" + link.attributes.slug} 
+      <Link to={"/categories/" + link.attributes.slug} 
     className=" bg-stone-100 mt-1 inline-block border-[1px] leading-5 pl-[4px] pr-[4px] ml-[4px] mr-[4px] no-underline text-[#464646] rounded-[3px] object-fill ">
     {link.attributes.title}
     </Link>  
@@ -104,7 +104,7 @@ const AnimeImage = ({item}) => {
 }
 
 const AnimeTitle = ({item}) => {
-    return(<div className="info-title relative block col-start-3 row-start-2 col-span-full my-12">
+    return(<div className="info-title relative block col-start-3 col-span-full mt-60">
       <span className="inline font-bold opacity-95 leading-none text-[60px] text-[#fff]" style={{"textTransform": "capitalize"}}>{item.attributes.slug}</span>
       <span className="text-[30px] text-[white] opacity-75 font-bold ml-[2%]">{item.attributes.startDate.slice(0, 4)}</span>
       <span className="text-[#1abc9c] block font-bold mt-[2%] ">{item.attributes.averageRating + "% Community Approval"}</span>

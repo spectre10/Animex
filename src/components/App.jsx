@@ -68,9 +68,9 @@ function App() {
       <UserProvider>
         <Header />
         <Routes>
-          <Route exact path="/" element={<Home />} />
+          <Route exact path="/" element={<Explore />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="/explore" element={<Explore />} />
+          {/* <Route path="/explore" element={<Explore />} /> */}
           <Route path="/categories/:catId" element={<Category />} />
           <Route path="/anime/:animeId" element={<Animecard />} />
           <Route path="/search/:searchId" element={<Search />} />

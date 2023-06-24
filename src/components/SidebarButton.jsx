@@ -58,7 +58,7 @@ export default function SidebarButton(props) {
             let temp = "/categories/" + item.attributes.slug;
             return (
               <React.Fragment key={index}>
-                <Link to={temp} onClick={handleClick}>
+                <Link to={temp} onClick={handleClick} style={{textDecoration:'none'}}>
                   <Button className="sidebar-btn shadow-none drop-btn">
                     {item.attributes.title}
                   </Button>
