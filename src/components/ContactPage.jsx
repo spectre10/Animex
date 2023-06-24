@@ -1,12 +1,7 @@
 
 import React from "react";
 import ContactForm from "./ContactForm";
-import Footer from "./Footer";
-import Grid from "./Grid";
-import Header from "./Header";
 import Img from "./Img";
-import {useState,useEffect} from "react";
-// import { json } from "express";
 function ContactPage() {
     // const [data,setData]=useState({})
     // useEffect(()=>{

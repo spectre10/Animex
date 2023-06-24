@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import axios from "axios";
-export default function useScroll(query,pageNumber) {
-    useEffect(()=>{
+export default function useScroll(query, pageNumber) {
+    useEffect(() => {
         axios()
-    },[query,pageNumber])
-  return <div></div>;
+    }, [query, pageNumber])
+    return <div></div>;
 }

@@ -1,5 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import ReactDOM from "react-dom";
+import React  from "react";
 // import ContactThanks from "./ContactThanks";
 // import Contact from "./Contact";
 import Explore from "./Explore";
@@ -13,9 +12,6 @@ import Search from "./Search";
 import Signup from "./Signup";
 // import { UserContext } from "./UserContext";
 import Library from "./Library";
-import Home from "./Home";
-import axios from "axios";
-import { useCountRenders } from "./useCountRenders";
 import { UserProvider } from "./UserContext";
 function App() {
   // const [user, setUser] = useState(null);

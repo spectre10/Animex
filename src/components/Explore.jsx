@@ -1,8 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 // import Img from "./Img";
 import Sidebar from "./Sidebar";
 import ExploreGrid from "./ExploreGrid";
-import { UserContext } from "./UserContext";
 // import { useCountRenders } from "./useCountRenders";
 
 function Explore() {

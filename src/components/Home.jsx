@@ -1,8 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 import Img from "./Img";
 import Grid from "./Grid";
-import axios from "axios";
-import { UserContext } from "./UserContext";
 
 function Home() {
   

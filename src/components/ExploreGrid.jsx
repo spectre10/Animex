@@ -56,7 +56,7 @@ const ExploreGrid = React.memo(function ExploreGrid(props) {
             <div className={`flex flex-wrap gap-2 w-full margin-left ${props.class}`}>
                 {loading
                     ? x()
-                    : links.length!=0?(links.map((item, index) => {
+                    : links.length != 0 ? (links.map((item, index) => {
                         // let n = item.attributes.titles.en;
                         // let name = (typeof n)==='undefined'?item.attributes.title.en:item.attributes.titles.jp;
                         return (
@@ -69,7 +69,7 @@ const ExploreGrid = React.memo(function ExploreGrid(props) {
                                 />
                             </React.Fragment>
                         )
-                    })):(<div className="m-52 text-xl">There are no items in this library currently.</div>)}
+                    })) : (<div className="m-52 text-xl">There are no items in this library currently.</div>)}
             </div>
         </div>
     );

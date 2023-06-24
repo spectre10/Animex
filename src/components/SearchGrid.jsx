@@ -9,13 +9,13 @@ const ExploreGrid = React.memo(function ExploreGrid(props) {
   const [loading, setLoading] = useState(true);
   //   const [links, setLinks] = useState([]);
   const [reload, setLoad] = useState(0);
+  reload
   const link = useRef([]);
   const isCurrent = useRef(true);
   let page_offset = 21;
   useEffect(() => {
     return () => {
       isCurrent.current = false;
-      console.log("unmounted");
       myController.abort();
       //   myController.abort();
     };
@@ -51,7 +51,7 @@ const ExploreGrid = React.memo(function ExploreGrid(props) {
     const height = document.documentElement.scrollHeight - document.documentElement.clientHeight
 
     const scrolled = winScroll / height
-    if (scrolled > 0.8) {
+    if (scrolled > 0.5) {
       window.removeEventListener('scroll', handleScroll)
       page_offset += 20
       const nextRes = await axios.get(props.url + "&page[offset]=" + (page_offset).toString());

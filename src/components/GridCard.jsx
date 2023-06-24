@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import {Img} from "react-image"
 import Popup from "reactjs-popup";
 import { useProfile } from "./UserContext";
 // import 'reactjs-popup/dist/index.css';
@@ -125,13 +126,13 @@ function GridCard(props) {
             >
                 <div className="grid-card flex-div group ">
                     <Link to={x} style={{ textDecoration: "none" }}>
-                        <img
+                        <Img
                             className="g-img filter absolute"
                             src={props.src}
                             // onLoad={load}
                             id=""
                             style={s}
-                        ></img>
+                        ></Img>
                         <div className="bg-gradient-to-t group-hover:from-[#000000cc] group-hover:to-[#0000001a] group-hover:bg-opacity-50 group-hover:rounded-md h-full w-full relative"></div>
                     </Link>
                     <div className="card-btn-div">

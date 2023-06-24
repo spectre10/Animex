@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Button from "react-bootstrap/Button"
 import Popup from "reactjs-popup";
 import { Link, useNavigate } from "react-router-dom";
@@ -72,6 +72,11 @@ function Header() {
                         <li className="nav-item">
                             <Link className="nav-link header-link" to="/library">
                                 Library
+              </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link header-link" to="/contact">
+                                Contact
               </Link>
                         </li>
                         {/* <li className="nav-item"> */}

@@ -5,7 +5,6 @@ import React, { useRef, useState } from "react";
 // import { dividerClasses } from "@mui/material";
 // import ContactThanks from "./ContactThanks"
 // import { Link } from "react-router-dom";
-import reactDom, { render } from "react-dom";
 const axios = require("axios").default;
 
 function ContactForm() {

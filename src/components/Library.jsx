@@ -1,5 +1,5 @@
 // import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Button from "react-bootstrap/Button";
 // import React, { useContext, useEffect, useState } from "react";
 import ExploreGrid from "./ExploreGrid";
@@ -24,7 +24,7 @@ export default function Library() {
                         {(!user ? <h1>Please sign in first</h1> : <ExploreGrid url={`/user/library/${lib}`} title="" libi={lib} />)}
                     </div>
                     <div className="flex-item-left  h-7 w-7 mt-52 mr-[10%] text-center content-center">
-                        <h4 className="">Libraries</h4>
+                        <div className="text-2xl sidebar-btn hover:bg-white">Libraries</div>
                         <Button type="button" className="sidebar-btn shadow-none" onClick={() => {
                             let e = 0
                             setlib(() => e)
