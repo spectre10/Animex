@@ -7,13 +7,15 @@ import { useProfile } from "./UserContext";
 function Header() {
     let navigate = useNavigate();
     const { user, setUser } = useProfile();
+    let [rerender,setRender]=useState(0);
     async function logout() {
         const response = await axios.post("/user/logout", { withCredentials: true })
         console.log(response);
         if (response.statusText && window) {
             setUser(null);
-            window.location.href("/")
-            window.location.reload()
+            setRender(Math.random())
+            window.location.replace("/")
+            // window.location.reload()
             // return navigate("/");
         }
     }
