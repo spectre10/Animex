@@ -7,14 +7,14 @@ import { useProfile } from "./UserContext";
 function Header() {
     let navigate = useNavigate();
     const { user, setUser } = useProfile();
-    let [u, setu] = useState(0);
-    setu(user)
+    let [render, setRender] = useState(0);
+    // setu(user)
     async function logout() {
         const response = await axios.post("/user/logout", { withCredentials: true })
         console.log(response);
         if (response.statusText && window) {
             setUser(null);
-            setu(null);
+            setRender(Math.random());
             window.location.replace("/")
             // window.location.reload()
             // return navigate("/");
@@ -112,13 +112,13 @@ function Header() {
                             id="search-box"
                         />
                         {/* <Search /> */}
-                        {u ? (
+                        {user ? (
                             <>
                                 <Popup
                                     trigger={
                                         <div>
                                             <Button variant="link" className="header-btn nav-link active register header-link name-span">
-                                                {u.username}
+                                                {user.username}
                                                 {/* <i className="fas fa-angle-right arrow"></i> */}
                                             </Button>
                                         </div>
