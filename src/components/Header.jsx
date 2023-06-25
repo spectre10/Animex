@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button"
 import Popup from "reactjs-popup";
 import { Link, useNavigate } from "react-router-dom";
@@ -7,7 +7,7 @@ import { useProfile } from "./UserContext";
 function Header() {
     let navigate = useNavigate();
     const { user, setUser } = useProfile();
-    let [rerender,setRender]=useState(0);
+    let [rerender, setRender] = useState(0);
     async function logout() {
         const response = await axios.post("/user/logout", { withCredentials: true })
         console.log(response);
