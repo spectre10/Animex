@@ -13,6 +13,7 @@ function Header() {
         if (response.statusText && window) {
             setUser(null);
             window.location.href("/")
+            window.location.reload()
             // return navigate("/");
         }
     }
