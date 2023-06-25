@@ -7,6 +7,7 @@ const ExploreGrid = React.memo(function ExploreGrid(props) {
     let mySignal = myController.signal;
     const [loading, setLoading] = useState(true);
     const [links, setLinks] = useState([]);
+    console.log(links.length)
     // const [name, setName] = useState();
     // const link = useRef([]);
     const isCurrent = useRef(true);
