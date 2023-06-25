@@ -18,7 +18,7 @@ function Header() {
     function handle() {
         var form = document.createElement("form");
         form.setAttribute("method", "GET");
-        form.setAttribute("action", "http://localhost:5000/auth/google");
+        form.setAttribute("action", "/auth/google");
 
         document.body.appendChild(form);
         form.submit();
