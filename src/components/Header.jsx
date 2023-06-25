@@ -12,7 +12,8 @@ function Header() {
         console.log(response);
         if (response.statusText && window) {
             setUser(null);
-            return navigate("/");
+            window.location.replace("/")
+            // return navigate("/");
         }
     }
     function handle() {
