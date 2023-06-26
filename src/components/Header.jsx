@@ -17,8 +17,7 @@ function Header() {
             setRender(prev => {
                 return prev + 1
             });
-            window.location.replace("/")
-            // window.location.reload()
+            window.location.reload(true)
             // return navigate("/");
         }
     }
