@@ -12,6 +12,9 @@ The backend source code is hosted at https://github.com/spectre10/animex-backend
 * TailwindCSS
 * MongoDB
 
+***
+Fellow Contributor: [Meet Soni](https://github.com/Dev-Voldemort)
+
 ## Screenshots
 ![Screenshot_20230628_201422](https://github.com/spectre10/Animex/assets/72698233/bb0dd806-2d66-4c16-8298-3a9a07cd4e5f)
 ---
